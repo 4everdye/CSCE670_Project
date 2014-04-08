@@ -1,6 +1,7 @@
 __author__ = 'Hanqing'
 import requests
 import string
+import urllib
 
 
 def Bing_search(key, type, query, format, limit):
@@ -9,12 +10,8 @@ def Bing_search(key, type, query, format, limit):
     url_2 = "?Query="
     url_3 = "&$format="
     url_4 = "&$top="
-    query = "\"" + query + "\""
-    query = string.replace(query, "'", '%27')
-    query = string.replace(query, '"', '%27')
-    query = string.replace(query, '+', '%2b')
-    query = string.replace(query, ' ', '%20')
-    query = string.replace(query, ':', '%3a')
+    query = "'" + query + "'"
+    query = urllib.quote_plus(query)
     url = url_0 + key + url_1 + type + url_2 + query + url_3 + format + url_4 + str(limit)
     return url
 
