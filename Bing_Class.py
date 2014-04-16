@@ -6,15 +6,13 @@ import urllib
 class Bing_Class:
     search_url = ""
     my_key = ""
-    type = ""
-    format = ""
+    type = "Web"
+    format = "json"
     limit = ""
     search_res = []
 
-    def __init__(self, key, type, format, limit):
+    def __init__(self, key, limit):
         self.my_key = key
-        self.type = type
-        self.format = format
         self.limit = limit
 
     def form_url(self, query):
