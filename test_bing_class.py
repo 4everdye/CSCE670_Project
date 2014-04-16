@@ -11,9 +11,8 @@ def main():
         query = raw_input("Please input query:\n")
         if query == "esc":
             break
-        Search_res = test_class.search(query)
-        for item in Search_res:
-            print item + ': \n' + Search_res[item][0] + '\n' + Search_res[item][1] + '\n'
+        test_class.search(query)
+        test_class.print_result()
     sys.exit(1)
 
 if __name__ == "__main__":
