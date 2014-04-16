@@ -9,6 +9,7 @@ class Bing_Class:
     type = ""
     format = ""
     limit = ""
+    search_res = []
 
     def __init__(self, key, type, format, limit):
         self.my_key = key
@@ -30,7 +31,10 @@ class Bing_Class:
         self.form_url(query)
         page = requests.get(self.search_url)
         page_dict = page.json()
-        Search_res = {}
         for issue in page_dict['d']['results']:
-            Search_res[issue['Title'].encode('utf-8')] = [issue['Description'].encode('utf-8'), issue['DisplayUrl'].encode('utf-8')]
-        return Search_res
+            self.search_res.append([issue['Title'].encode('utf-8'), issue['Description'].encode('utf-8'), issue['Url'].encode('utf-8')])
+        return self.search_res
+        
+    def print_result(self):
+        for item in self.search_res:
+            print item[0] + ': \n' + item[1] + '\n' + item[2] + '\n'
