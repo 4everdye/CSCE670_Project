@@ -29,7 +29,9 @@ class Facebook_Class:
 
     def login(self):
         try:
+            # facebook login: email address: doubi670@gmail.com, password: wobushidoubi
             params = urllib.urlencode({'email': 'doubi670@gmail.com', 'pass': 'wobushidoubi', 'login': 'Log+In'})
+            
             req = urllib2.Request('http://m.facebook.com/login.php?m=m&refsrc=m.facebook.com%2F', params, self.headers)
             res = self.opener.open(req)
             # html = res.read()
