@@ -6,7 +6,7 @@ import sys
 def main():
     query = ""
     my_key = "LBgs97jt04iG6VUNDzHQUMoXPpHxCThQMIZ1sRGR9HI"
-    test_class = Bing_Class(my_key, "Web", "json", 10)
+    test_class = Bing_Class(my_key, 10)
     while not query == "esc":
         query = raw_input("Please input query:\n")
         if query == "esc":
