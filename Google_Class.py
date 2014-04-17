@@ -4,11 +4,14 @@ import urllib
 
 
 class Google_Class:
-    my_key = ""
-    my_id = ""
+    my_key = 'AIzaSyDgcTb1_X2e-FZxsluhEdV-TRMAioOrjW8'
+    my_id = '009400449333405283817:aefsx9jwd50'
     url = ""
     limit = None
     search_res = []
+    
+    def __init__(self, limit):
+        self.limit = limit
 
     def __init__(self, key, id, limit):
         self.my_key = key
