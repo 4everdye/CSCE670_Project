@@ -5,11 +5,14 @@ import urllib
 
 class Bing_Class:
     search_url = ""
-    my_key = ""
+    my_key = "LBgs97jt04iG6VUNDzHQUMoXPpHxCThQMIZ1sRGR9HI"
     type = "Web"
     format = "json"
     limit = ""
     search_res = []
+    
+    def __init__(self, limit):
+        self.limit = limit
 
     def __init__(self, key, limit):
         self.my_key = key
