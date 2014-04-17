@@ -9,8 +9,8 @@ class Facebook_Class:
     jar = cookielib.CookieJar()
     cookie = urllib2.HTTPCookieProcessor(jar)
     opener = urllib2.build_opener(cookie)
-    email = ''
-    password = ''
+    email = 'doubi670@gmail.com'
+    password = 'wobushidoubi'
     search_res = []
 
     headers = {
@@ -21,7 +21,10 @@ class Facebook_Class:
         "Content-type": "application/x-www-form-urlencoded",
         "Host": "m.facebook.com"
     }
-
+    
+    def __init__(self):
+        pass
+    
     def __init__(self, email, password):
         self.email = email
         self.password = password
