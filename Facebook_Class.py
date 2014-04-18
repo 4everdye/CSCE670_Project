@@ -47,7 +47,7 @@ class Facebook_Class:
         query = urllib.quote_plus(query)
         url = "https://m.facebook.com/findfriends/search/?refid=7&ref=wizard&q=" + query + "&submit=Search"
         page = self.fetch(url)
-        persons = re.findall(r'<tr>.*?<a href="(.*?)">.*?<span class="mfsm">(.*?)</span>.*?</tr>', page)
+        persons = re.findall(r'<tr>.*?<td class="name">.*?<a href="(.*?)">.*?<span class="mfsm">(.*?)</span>.*?</tr>', page)
         for person in persons:
             self.search_res.append([person[1], 'm.facebook.com' + person[0]])
             # self.search_res[person[1]] = 'm.facebook.com' + person[0]
