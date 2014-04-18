@@ -10,9 +10,6 @@ class Google_Class:
     limit = None
     search_res = []
     res_total = None
-    
-    def __init__(self, limit):
-        self.limit = limit
 
     def __init__(self, key, id, limit):
         self.my_key = key
