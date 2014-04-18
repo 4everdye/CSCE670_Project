@@ -22,9 +22,6 @@ class Facebook_Class:
         "Host": "m.facebook.com"
     }
     
-    def __init__(self):
-        pass
-    
     def __init__(self, email, password):
         self.email = email
         self.password = password
