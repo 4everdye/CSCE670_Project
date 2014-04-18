@@ -11,9 +11,6 @@ class Twitter_Class:
     api = tweepy.API(auth)
     limit = None
     search_res = []
-
-    def __init__(self, limit):
-        self.limit = limit
         
     def __init__(self, token, token_secret, consumer_key, consumer_secret, limit):
         self.access_token = token
