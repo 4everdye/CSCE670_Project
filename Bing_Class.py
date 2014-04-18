@@ -10,9 +10,6 @@ class Bing_Class:
     format = "json"
     limit = ""
     search_res = []
-    
-    def __init__(self, limit):
-        self.limit = limit
 
     def __init__(self, key, limit):
         self.my_key = key
