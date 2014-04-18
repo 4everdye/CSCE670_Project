@@ -21,7 +21,7 @@ class Twitter_Class:
 
     def search(self, query):
         for tweet in tweepy.Cursor(self.api.search, q=query, result_type="recent", include_entities=True, lang="en").items(self.limit):
-            self.search_res.append([tweet.author.name.encode('utf-8'), tweet.text.encode('utf-8')])
+            self.search_res.append([tweet.author.screen_name.encode('utf-8'), tweet.text.encode('utf-8')])
         return self.search_res
 
     def print_result(self):
