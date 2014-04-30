@@ -1,5 +1,5 @@
 __author__ = 'Hanqing'
-from Twitter_Class import Twitter_Class
+from TwitterService import TwitterService
 
 
 def main():
@@ -7,7 +7,7 @@ def main():
     access_token_secret = "soso40fYcGP9G4pr9fYj6GjSLVV0ny50KDJwBgiOrDcPO"
     consumer_key = "7G5CoXNtxP6XbfgTSyNzzA"
     consumer_secret = "98Upsqkir4vz5PAsRjwSyrkKwDGSB2QB4rI6dNXnAk"
-    test_class = Twitter_Class(access_token, access_token_secret, consumer_key, consumer_secret, 20)
+    test_class = TwitterService(access_token, access_token_secret, consumer_key, consumer_secret, 20)
     query = "obama"
     test_class.search(query)
     test_class.print_result()

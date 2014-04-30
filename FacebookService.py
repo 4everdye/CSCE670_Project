@@ -5,7 +5,7 @@ import cookielib
 import re
 
 
-class Facebook_Class:
+class FacebookService(object):
     jar = cookielib.CookieJar()
     cookie = urllib2.HTTPCookieProcessor(jar)
     opener = urllib2.build_opener(cookie)
@@ -25,13 +25,14 @@ class Facebook_Class:
     def __init__(self, email, password):
         self.email = email
         self.password = password
+        self.need_login = True
 
     def login(self):
         try:
             params = urllib.urlencode({'email': self.email, 'pass': self.password, 'login': 'Log+In'})
             req = urllib2.Request('http://m.facebook.com/login.php?m=m&refsrc=m.facebook.com%2F', params, self.headers)
             res = self.opener.open(req)
-
+            self.need_login = False
         except urllib2.HTTPError, e:
             print e.msg
         except urllib2.URLError, e:
@@ -44,12 +45,15 @@ class Facebook_Class:
         return res.read()
 
     def search(self, query):
+        if self.need_login:
+            self.login()
+        self.search_res = []
         query = urllib.quote_plus(query)
         url = "https://m.facebook.com/findfriends/search/?refid=7&ref=wizard&q=" + query + "&submit=Search"
         page = self.fetch(url)
         persons = re.findall(r'<tr>.*?<td class="name">.*?<a href="(.*?)">.*?<span class="mfsm">(.*?)</span>.*?</tr>', page)
         for person in persons:
-            self.search_res.append([person[1], 'm.facebook.com' + person[0]])
+            self.search_res.append([person[1], 'https://m.facebook.com' + person[0]])
             # self.search_res[person[1]] = 'm.facebook.com' + person[0]
         return self.search_res
 

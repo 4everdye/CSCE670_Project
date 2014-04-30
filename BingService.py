@@ -3,7 +3,7 @@ import requests
 import urllib
 
 
-class Bing_Class:
+class BingService(object):
     search_url = ""
     my_key = "LBgs97jt04iG6VUNDzHQUMoXPpHxCThQMIZ1sRGR9HI"
     type = "Web"
@@ -26,6 +26,7 @@ class Bing_Class:
         self.search_url = url_0 + self.my_key + url_1 + self.type + url_2 + query + url_3 + self.format + url_4 + str(self.limit)
 
     def search(self, query):
+        self.search_res = []
         self.form_url(query)
         page = requests.get(self.search_url)
         page_dict = page.json()

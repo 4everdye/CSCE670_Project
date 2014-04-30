@@ -1,10 +1,10 @@
 __author__ = 'Hanqing'
-from LinkedIn_Class import LinkedIn_Class
+from LinkedInService import LinkedInService
 
 
 def main():
     query = 'Hanqing Zhao'
-    test_class = LinkedIn_Class()
+    test_class = LinkedInService()
     test_class.search(query)
     test_class.print_result()
     pass

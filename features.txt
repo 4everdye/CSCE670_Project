@@ -1,0 +1,17 @@
+Person:
+0: 1st pass 出现次数
+1: ln(feature 0)
+2: Words count 1/|x-2.5|
+3: 2nd pass FB, LinkedIn中query出现次数
+4: ln(feature 3)
+5: 2nd pass Bing结果数
+6: ln(feature 5)
+
+
+Location, Organization:
+0: 1st pass 出现次数
+1: ln(feature 0)
+2: 2nd pass FB, LinkedIn中出现次数
+3: ln(feature 2)
+4: 2nd pass Bing结果数
+5: ln(feature 4)

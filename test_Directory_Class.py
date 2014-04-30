@@ -1,9 +1,9 @@
 __author__ = 'Hanqing'
-from Directory_Class import Directory_Class
+from DirectoryService import DirectoryService
 
 
 def main():
-    test_class = Directory_Class()
+    test_class = DirectoryService()
     test_class.search("Shihua Zheng")
     test_class.print_result()
 

@@ -3,7 +3,7 @@ import requests
 import urllib
 
 
-class Google_Class:
+class GoogleService(object):
     my_key = 'AIzaSyDgcTb1_X2e-FZxsluhEdV-TRMAioOrjW8'
     my_id = '009400449333405283817:aefsx9jwd50'
     url = ""
@@ -17,6 +17,7 @@ class Google_Class:
         self.limit = limit
 
     def search(self, query):
+        self.search_res = []
         self.url = 'https://www.googleapis.com/customsearch/v1?key={}&cx={}&alt=json&q={}&num={}'.format(self.my_key, self.my_id,urllib.quote_plus(query), self.limit)
         result = requests.get(self.url)
         result_json = result.json()

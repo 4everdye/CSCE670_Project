@@ -3,14 +3,15 @@ import requests
 import re
 
 
-class LinkedIn_Class:
+class LinkedInService:
     First_Name = ""
     Last_Name = ""
     url = ""
-    search_res = []
+
 
     def search(self, query):
         name = query.split(' ')
+        self.search_res = []
         if len(name) == 0:
             return self.search_res
         if len(name) == 1:
@@ -24,8 +25,9 @@ class LinkedIn_Class:
         for person in persons:
             if len(self.search_res) == 10:
                 break
-            self.search_res.append([person[0], person[1]])
+            self.search_res.append([person[1], person[0]])
         return self.search_res
+
 
     def print_result(self):
         for item in self.search_res:

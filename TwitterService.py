@@ -1,7 +1,7 @@
 import tweepy
 
 
-class Twitter_Class:
+class TwitterService(object):
     access_token = "323861641-2QMc92Bg6jV7dDUYPg3yvSJmhRCpEJncvq0rGZzn"
     access_token_secret = "soso40fYcGP9G4pr9fYj6GjSLVV0ny50KDJwBgiOrDcPO"
     consumer_key = "7G5CoXNtxP6XbfgTSyNzzA"
@@ -12,17 +12,19 @@ class Twitter_Class:
     limit = None
     search_res = []
         
-    def __init__(self, token, token_secret, consumer_key, consumer_secret, limit):
+    def __init__(self, token, token_secret, consumer_key, consumer_secret, limit, tagger):
         self.access_token = token
         self.access_token_secret = token_secret
         self.consumer_key = consumer_key
         self.consumer_secret = consumer_secret
         self.limit = limit
+        self.tagger = tagger
 
     def search(self, query):
-        for tweet in tweepy.Cursor(self.api.search, q=query, result_type="recent", include_entities=True, lang="en").items(self.limit):
-            self.search_res.append([tweet.author.screen_name.encode('utf-8'), tweet.text.encode('utf-8')])
-        return self.search_res
+        str = ''
+        for tweet in tweepy.Cursor(self.api.search, q=query, result_type="mixed", include_entities=True, lang="en").items(self.limit):
+            str += tweet.author.screen_name.encode("ascii", "ignore") + ", " + tweet.text.encode("ascii", "ignore")
+        return self.tagger.ner(str)
 
     def print_result(self):
         for tweet in self.search_res:
